@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Ahorcado by Marcelo Simon</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@300&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/496e0bb4aa.js"
+            crossorigin="anonymous"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row justify-content-between vh-88">
+                <div class="col-2 align-self-start text-center">
+                    <img src="img/logo.png" class="logo" alt="">
+                </div>
+
+
+                <div class="row col-5 d-flex align-self-center">
+
+                    <section id="inicio" class="">
+                        <button id="boton-iniciar-juego" type="button"
+                            class="btn primary-button w-100">Iniciar juego</button>
+                        <button id="boton-agregar-palabra" type="button"
+                            class="btn secondary-button w-100">Agregar nueva
+                            palabra</button>
+                    </section>
+
+                    <section id="agregar-palabra" class="row no-display">
+                        <textarea type="text" class="input-text" name=""
+                            cols="40" rows="4" placeholder="Ingrese la palabra a
+                            agregar"></textarea>
+                        <h6 class="indicador"><i class="fa-solid
+                                fa-circle-exclamation"></i> Máx de 8 letras.</h6>
+                        <button id="boton-guardar-y-empezar" type="button"
+                            class="col btn default-primary-button w-100">Guardar
+                            y empezar</button>
+                        <button id="boton-cancelar" type="button" class="col btn
+                            default-secondary-button w-100">Cancelar</button>
+                    </section>
+
+                    <section id="juego" class="row no-display">
+                        <canvas id="dibujo-ahorcado" width="800" height="700"></canvas>
+
+
+                        <div id="palabra">
+                            <!-- <div class="letra "><span>P</span><div></div></div> -->
+                        </div>
+
+                        <h1></h1>
+
+                        <button id="boton-nuevo-juego" type="button" class="col
+                            btn default-primary-button w-100 mt-5" >Nuevo juego</button>
+                        <button id="boton-desistir" type="button" class="col btn
+                            default-secondary-button w-100 mt-5">Desistir</button>
+                    </section>
+                </div>
+
+                <div class="col-2 align-self-end vh-88">
+                    <img id="imagen-loser" class="no-display"
+                        src="img/ahorcado-loser.png" alt="">
+                    <img id="imagen-winner" class="no-display"
+                        src="img/winner.png" alt="">
+                </div>
+            </div>
+        </div>
+        <footer class="d-flex justify-content-center diseño">
+            <img src="img/LOGO DEVELOPER NEGRO.png" class="" alt="">
+        </footer>
+    </body>
+    <script src="js/juego.js"></script>
+    <script src="js/botones.js"></script>
+
+</html>

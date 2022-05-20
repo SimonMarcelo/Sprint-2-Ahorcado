@@ -1,0 +1,115 @@
+*{
+    background-color: #e5e5e5;
+    font-family: 'Inter', sans-serif;
+    
+
+}
+
+body{
+    min-height: 100vh;
+}
+
+.vh-88{
+    height: 88vh
+}
+
+.logo{
+    margin-top: 30%;
+}
+
+.primary-button{
+    background-color: #0A3871;
+    color: #fff;
+    margin: 2%;
+    padding: 10%;
+    border-radius: 24px;
+    font-size: 1.2rem;
+}
+
+.secondary-button{
+    border: #0A3871 solid 1px; 
+    color: #0A3871;
+    margin: 2%;
+    padding: 24px;
+    border-radius: 24px;
+    font-size: 1.1rem;
+}
+
+.no-display{
+    display: none;
+}
+
+.diseño{
+    height: 12vh;
+}
+/*Aquí comienza el css de la página de agregar palabra*/
+
+.input-text{
+    height: 50%;
+    border: 0;
+    font-size: 2rem;
+    line-height: 4rem;
+    color: darkblue;
+    resize: none;
+    margin-bottom: 20%;
+}
+
+.indicador{
+    font-size: 0.9rem;
+    color: #495057;
+    opacity: 80%;
+}
+
+.default-primary-button,.default-secondary-button{
+    margin: 2%;
+    padding: 1rem;
+    border-radius: 24px;
+    font-size: 1.1rem;
+}
+
+.default-primary-button{
+    background-color: #0A3871;
+    color: #fff;
+}
+
+.default-secondary-button{
+    border: #0A3871 solid 1px; 
+    color: #0A3871;
+}
+
+#imagen-loser{
+    width:100%;
+}
+
+#imagen-winner{
+    width: 100%;
+    margin: 100% 0;
+}
+
+#palabra{
+    display: flex;
+    justify-content: center;
+}
+
+.letra{
+    width: 80px;
+    height: 92px;
+    margin: 0 2%;
+}
+
+.letra div{
+    width: 80px;
+    height: 4px;
+    background: #0A3871;
+    border-radius: 8px;
+}
+
+.letra span{
+    color: #0A3871;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 150%;
+    text-align: center;
+    min-height: 100%;
+}
