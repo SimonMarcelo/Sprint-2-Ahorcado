@@ -21,6 +21,44 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+
+        <div id="modal" class="modal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Perdiste!</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p></p>
+                        <img id="imagen-loser" class="" src="img/ahorcado-loser.png" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-ganaste" class="modal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Ganaste!</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p></p>
+                        <img id="imagen-winner" class="" src="img/winner.png" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
         <div class="container-fluid">
             <div class="row justify-content-between vh-88">
                 <div class="col-2 align-self-start text-center">
@@ -28,20 +66,19 @@
                 </div>
 
 
-                <div class="row col-5 d-flex align-self-center">
+                <div class="row col-5 d-flex align-self-center vh-88">
 
-                    <section id="inicio" class="">
+                    <section id="inicio">
                         <button id="boton-iniciar-juego" type="button"
-                            class="btn primary-button w-100">Iniciar juego</button>
+                            class="btn primary-button w-100 mx-auto">Iniciar juego</button>
                         <button id="boton-agregar-palabra" type="button"
-                            class="btn secondary-button w-100">Agregar nueva
+                            class="btn secondary-button w-100 mx-auto">Agregar nueva
                             palabra</button>
                     </section>
 
                     <section id="agregar-palabra" class="row no-display">
-                        <textarea type="text" class="input-text" name=""
-                            cols="40" rows="4" placeholder="Ingrese la palabra a
-                            agregar"></textarea>
+                        <input type="text" class="input-text" name=""
+                            cols="4" rows="1" placeholder="Ingrese la palabra a agregar" maxlength="8">
                         <h6 class="indicador"><i class="fa-solid
                                 fa-circle-exclamation"></i> Máx de 8 letras.</h6>
                         <button id="boton-guardar-y-empezar" type="button"
@@ -51,34 +88,45 @@
                             default-secondary-button w-100">Cancelar</button>
                     </section>
 
-                    <section id="juego" class="row no-display">
-                        <canvas id="dibujo-ahorcado" width="800" height="700"></canvas>
-
+                    <section id="juego" class="row no-display align-middle">
+                        <div class="dibujo-ahorcado">
+                            <svg width="294" height="360" viewbox="0 0 294 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect class="no-display" y="355" width="294" height="5" rx="2.5" fill="#0A3871"/>
+                                <rect class="no-display" x="80.6748" width="4.5" height="360" rx="2.25" fill="#0A3871"/>
+                                <rect class="no-display" x="80.6748" width="177.75" height="4.5" rx="2.25" fill="#0A3871"/>
+                                <rect class="no-display" x="253.925" width="4.5" height="49.5" rx="2.25" fill="#0A3871"/>
+                                <path class="no-display" fill-rule="evenodd" clip-rule="evenodd" d="M256.175 103.5C271.086 103.5 283.175 91.4117 283.175 76.5C283.175 61.5883 271.086 49.5 256.175 49.5C241.263 49.5 229.175 61.5883 229.175 76.5C229.175 91.4117 241.263 103.5 256.175 103.5ZM256.175 108C273.572 108 287.675 93.897 287.675 76.5C287.675 59.103 273.572 45 256.175 45C238.778 45 224.675 59.103 224.675 76.5C224.675 93.897 238.778 108 256.175 108Z" fill="#0A3871"/>
+                                <rect class="no-display" x="253.925" y="108" width="4.5" height="135" fill="#0A3871"/>
+                                <rect class="no-display" x="254.749" y="106.875" width="4.4994" height="72" rx="2.2497" transform="rotate(30 254.749 106.875)" fill="#0A3871"/>
+                                <rect class="no-display" width="4.49914" height="72" rx="2.24957" transform="matrix(-0.866025 0.5 0.5 0.866025 257.52 106.875)" fill="#0A3871"/>
+                                <rect class="no-display" x="254.748" y="239.625" width="4.50155" height="72" rx="2.25078" transform="rotate(30 254.748 239.625)" fill="#0A3871"/>
+                                <rect class="no-display" width="4.50385" height="72" rx="2.25193" transform="matrix(-0.866025 0.5 0.5 0.866025 257.522 239.624)" fill="#0A3871"/>
+                            </svg>
+                        </div>
 
                         <div id="palabra">
                             <!-- <div class="letra "><span>P</span><div></div></div> -->
                         </div>
 
-                        <h1></h1>
+                        <h1 id="letras-erradas"></h1>
 
                         <button id="boton-nuevo-juego" type="button" class="col
-                            btn default-primary-button w-100 mt-5" >Nuevo juego</button>
+                            btn default-primary-button w-100 mt-2" >Nuevo juego</button>
                         <button id="boton-desistir" type="button" class="col btn
-                            default-secondary-button w-100 mt-5">Desistir</button>
+                            default-secondary-button w-100 mt-2">Desistir</button>
                     </section>
                 </div>
 
                 <div class="col-2 align-self-end vh-88">
-                    <img id="imagen-loser" class="no-display"
-                        src="img/ahorcado-loser.png" alt="">
-                    <img id="imagen-winner" class="no-display"
-                        src="img/winner.png" alt="">
+
                 </div>
             </div>
         </div>
         <footer class="d-flex justify-content-center diseño">
             <img src="img/LOGO DEVELOPER NEGRO.png" class="" alt="">
         </footer>
+            
+        
     </body>
     <script src="js/juego.js"></script>
     <script src="js/botones.js"></script>
