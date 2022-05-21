@@ -1,29 +1,28 @@
-var palabraIngresada = document.querySelector("textarea");
+var palabraIngresada = document.querySelector(".input-text");
+function ocultarPantallas() {
+    pantallaInicio.classList.add("no-display");
+    pantallaAgregarPalabra.classList.add("no-display");
+    pantallaJuego.classList.add("no-display");
+}
 
 function agregar(palabraIngresada) {
-    if (
-        !palabrasSecretas.includes(palabraIngresada.toUpperCase()) &&
-        palabraIngresada != ""
-    ) {
+    if (!palabrasSecretas.includes(palabraIngresada.toUpperCase()) && palabraIngresada != "") {
         palabrasSecretas.push(palabraIngresada.toUpperCase());
     }
 }
 
 function mostrarInicio() {
+    ocultarPantallas();
     pantallaInicio.classList.remove("no-display");
-    pantallaAgregarPalabra.classList.add("no-display");
-    pantallaJuego.classList.add("no-display");
 }
 
 function mostrarAgregarPalabra() {
-    pantallaInicio.classList.add("no-display");
+    ocultarPantallas();
     pantallaAgregarPalabra.classList.remove("no-display");
-    pantallaJuego.classList.add("no-display");
 }
 
 function mostrarJugar() {
-    pantallaInicio.classList.add("no-display");
-    pantallaAgregarPalabra.classList.add("no-display");
+    ocultarPantallas();
     pantallaJuego.classList.remove("no-display");
 }
 

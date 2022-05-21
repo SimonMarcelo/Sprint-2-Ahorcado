@@ -24,6 +24,8 @@ var pantallaAgregarPalabra = document.querySelector("#agregar-palabra");
 var pantallaJuego = document.querySelector("#juego");
 var palabraOculta = document.querySelector("#palabra-secreta");
 var selectorDePalabra = document.querySelector("#palabra");
+var fraseFelicitacion;
+var fraseDerrota;
 
 var palabraSecretaArray = [];
 
@@ -82,6 +84,7 @@ document.addEventListener("keyup", function (event) {
         imprimirArrayayEnH1();
         mostrarParte(letrasEquivocadas.length - 1);
         if (revisarSiPerdio()) {
+            fraseDerrota;
             mostrarPerdedor();
         }
     } else if (adivinaLetra && revisarSiGano()) {
@@ -121,20 +124,24 @@ function ocultarDibujo() {
 }
 
 function mostrarPerdedor() {
+    elegirMensajeDerrota();
     const mensajeModalPerdedor = document
         .getElementById("modal")
         .getElementsByClassName("modal-body")[0]
         .getElementsByTagName("p")[0];
-    mensajeModalPerdedor.innerHTML = "LA PALABRA ERA " + palabraSecreta;
+    mensajeModalPerdedor.innerHTML =
+        fraseDerrota + "<br>LA PALABRA ERA <b>" + palabraSecreta + "</b>";
     myModal.show();
 }
 
 function mostrarGanador() {
+    elegirFelicitacion();
     const mensajeModalGanador = document
         .getElementById("modal-ganaste")
         .getElementsByClassName("modal-body")[0]
         .getElementsByTagName("p")[0];
-    mensajeModalGanador.innerHTML = "¡¡¡HICISTE UN EXCELENTE TRABAJO!!! <br> LA PALABRA ERA <b>" + palabraSecreta + "</b>";
+    mensajeModalGanador.innerHTML =
+        fraseFelicitacion + "<br> LA PALABRA ERA <b>" + palabraSecreta + "</b>";
     myModal2.show();
 }
 
@@ -147,4 +154,33 @@ function estadoInicial() {
     letrasEquivocadas = [];
     palabraSecretaArray = [];
     ocultarDibujo();
+}
+
+function elegirFelicitacion() {
+    let frasesDeFelicitacion = [
+        "¡¡¡EXCELENTE TRABAJO!!!",
+        "¡¡¡LO HICISTE MUY BIEN!!!",
+        "¡¡¡SOS INCREIBLE!!!",
+        "¡¡¡SOS BRILLANTE!!!",
+        "¡¡¡MUY BUEN TRABAJO!!!",
+        "¡¡¡SOS SORPRENDENTE!!!",
+        "¡¡¡INCREIBLE!!!",
+    ];
+    fraseFelicitacion =
+        frasesDeFelicitacion[Math.round(Math.random() * (frasesDeFelicitacion.length - 1))];
+    return fraseFelicitacion;
+}
+
+function elegirMensajeDerrota() {
+    let frasesDeDerrota = [
+        "LA PRÓXIMA TENDRÁS MÁS SUERTE",
+        "SEGUÍ INTENTÁNDOLO",
+        "NO BAJES LOS BRAZOS",
+        "ESTA ERA MUY DIFICIL",
+        "INTENTÁ EMPEZAR CON VOCALES",
+        "PERSISTE Y LO LOGRARÁS",
+        "MÁS SUERTE PARA LA PRÓXIMA",
+    ];
+    fraseDerrota = frasesDeDerrota[Math.round(Math.random() * (frasesDeDerrota.length - 1))];
+    return fraseDerrota;
 }
