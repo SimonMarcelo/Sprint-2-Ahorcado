@@ -71,8 +71,8 @@ document.addEventListener("keyup", function (event) {
     let tecla = event.key;
     if (
         !jugando ||
-        !/[a-zA-Z]/.test(tecla) ||
-        tecla == "Enter" ||
+        !/[A-z]/.test(tecla) ||
+        tecla.length > 1 ||
         letrasUsadas.indexOf(tecla) >= 0
     ) {
         return false;
