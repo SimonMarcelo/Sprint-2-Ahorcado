@@ -60,7 +60,7 @@
         
         
         <div class="container-fluid">
-            <div class="row justify-content-between vh-88">
+            <div class="row justify-content-around vh-88">
                 <div class="col-2 align-self-start text-center">
                     <img src="img/logo.png" class="logo" alt="">
                 </div>
@@ -76,21 +76,23 @@
                             palabra</button>
                     </section>
 
-                    <section id="agregar-palabra" class="row no-display">
+                    <section id="agregar-palabra" class="column no-display vh-88">
                         <input type="text" class="input-text" name=""
-                            cols="4" rows="1" placeholder="Ingrese la palabra a agregar" maxlength="8">
+                        cols="4" rows="1" placeholder="Ingrese la palabra a agregar" maxlength="8">
                         <h6 class="indicador"><i class="fa-solid
                                 fa-circle-exclamation"></i> Máx de 8 letras.</h6>
-                        <button id="boton-guardar-y-empezar" type="button"
-                            class="col btn default-primary-button w-100">Guardar
+                        <div class="flex">
+                                <button id="boton-guardar-y-empezar" type="button"
+                            class="row btn default-primary-button">Guardar
                             y empezar</button>
-                        <button id="boton-cancelar" type="button" class="col btn
-                            default-secondary-button w-100">Cancelar</button>
+                            <button id="boton-cancelar" type="button" class="row btn
+                            default-secondary-button">Cancelar</button>
+                        </div>
                     </section>
 
-                    <section id="juego" class="row no-display align-middle">
+                    <section id="juego" class="row no-display align-content-around vh-88">
                         <div class="dibujo-ahorcado">
-                            <svg width="294" height="360" viewbox="0 0 294 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="294" height="100%" viewbox="0 0 294 360" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect class="no-display" y="355" width="294" height="5" rx="2.5" fill="#0A3871"/>
                                 <rect class="no-display" x="80.6748" width="4.5" height="360" rx="2.25" fill="#0A3871"/>
                                 <rect class="no-display" x="80.6748" width="177.75" height="4.5" rx="2.25" fill="#0A3871"/>
@@ -109,11 +111,12 @@
                         </div>
 
                         <h1 id="letras-erradas"></h1>
-
-                        <button id="boton-nuevo-juego" type="button" class="col
-                            btn default-primary-button w-100 mt-2" >Nuevo juego</button>
-                        <button id="boton-desistir" type="button" class="col btn
-                            default-secondary-button w-100 mt-2">Desistir</button>
+                        <div class="flex">
+                            <button id="boton-nuevo-juego" type="button" class="col
+                                btn default-primary-button mt-2" >Nuevo juego</button>
+                            <button id="boton-desistir" type="button" class="col btn
+                                default-secondary-button mt-2">Desistir</button>
+                        </div>
                     </section>
                 </div>
 
