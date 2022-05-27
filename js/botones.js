@@ -6,8 +6,11 @@ function ocultarPantallas() {
 }
 
 function agregar(palabraIngresada) {
-    if (!palabrasSecretas.includes(palabraIngresada.toUpperCase()) && palabraIngresada != "") {
-        palabrasSecretas.push(palabraIngresada.toUpperCase());
+    if (palabraIngresada != "" && /[a-zA-Z\u00F1\u00D1]/.test(palabraIngresada)) {
+        localStorage.setItem(localStorage.length,palabraIngresada.toUpperCase());
+    }
+    else{
+        alert("La palabra ingresada no debe:\n- Contener números\n- Estar vacía\n");
     }
 }
 
@@ -52,8 +55,8 @@ cancelar.addEventListener("click", function () {
 
 var nuevoJuego = document.querySelector("#boton-nuevo-juego");
 nuevoJuego.addEventListener("click", function () {
-    juegoNuevo();
     mostrarJugar();
+    juegoNuevo();
 });
 
 var desistir = document.querySelector("#boton-desistir");
@@ -61,3 +64,5 @@ var imagenDerrota = document.querySelector("#imagen-derrota");
 desistir.addEventListener("click", function () {
     mostrarPerdedor();
 });
+
+

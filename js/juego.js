@@ -12,6 +12,18 @@ var palabrasSecretas = [
     "LENGTH",
     "GITHUB",
     "ORACLE",
+    "BUCLE",
+    "SCRIPT",
+    "CLASS",
+    "KEY",
+    "JSON",
+    "IMAGEN",
+    "DEL",
+    "ADD",
+    "SPRINT",
+    "SWITCH",
+    "MODAL",
+    "FUNCTION",
 ];
 var myModal = new bootstrap.Modal(document.getElementById("modal"), {});
 var myModal2 = new bootstrap.Modal(document.getElementById("modal-ganaste"), {});
@@ -43,6 +55,8 @@ function juegoNuevo() {
         palabraSecretaArray.push({ letra: element, estado: false });
         selectorDePalabra.innerHTML += generadorHTMLLetra("");
     }
+    localStorageToPalabrasSecretas();
+
 }
 
 function generadorHTMLLetra(letra) {
@@ -183,4 +197,13 @@ function elegirMensajeDerrota() {
     ];
     fraseDerrota = frasesDeDerrota[Math.round(Math.random() * (frasesDeDerrota.length - 1))];
     return fraseDerrota;
+}
+
+function localStorageToPalabrasSecretas(){
+    for (let key = 0;  key < localStorage.length; key++) {
+        const element = localStorage[key].toUpperCase();
+        if(!palabrasSecretas.includes(element)) {
+            palabrasSecretas.push(element);
+        }
+    }
 }
