@@ -1,29 +1,13 @@
 var jugando = false;
 var palabrasSecretas = [
-    "ALURA",
-    "HTML",
-    "CANVAS",
-    "ARRAY",
-    "LOOP",
-    "OBJETO",
-    "WEB",
-    "CONSOLE",
-    "PUSH",
-    "LENGTH",
-    "GITHUB",
-    "ORACLE",
-    "BUCLE",
-    "SCRIPT",
-    "CLASS",
-    "KEY",
-    "JSON",
-    "IMAGEN",
-    "DEL",
-    "ADD",
-    "SPRINT",
-    "SWITCH",
-    "MODAL",
-    "FUNCTION",
+    "abeja", "abrigo", "abuelo", "acuario", "adivino", "agua", "alfombra", "almohada", "amapola", "amigo",
+    "anillo", "antena", "antifaz", "ano", "arena", "aroma", "ascensor", "asiento", "avion", "bailarin",
+    "bano", "barco", "bicicleta", "blanco", "bocadillo", "bodega", "bosque", "botella", "burbuja", "caballo",
+    "cabeza", "cactus", "calabaza", "calor", "camino", "camisa", "cangrejo", "canto", "casa", "castillo",
+    "cazador", "cebolla", "cementerio", "cereal", "cereza", "cielo", "ciencia", "cien", "ciervo", "cinta",
+    "ciudad", "clavel", "clima", "coche", "cocinero", "colina", "color", "cometa", "conejo", "corazon",
+    "corona", "crema", "cristal", "cuchillo", "cultura", "dedo", "dentista", "desierto", "dia", "dinosaurio",
+    "disfraz", "dormitorio", "dragon", "duda", "edificio", "elefante", "estrella", "flor", "fuego"
 ];
 var myModal = new bootstrap.Modal(document.getElementById("modal"), {});
 var myModal2 = new bootstrap.Modal(document.getElementById("modal-ganaste"), {});
@@ -42,7 +26,7 @@ var fraseDerrota;
 var palabraSecretaArray = [];
 
 function elegirPalabraSecreta() {
-    palabraSecreta = palabrasSecretas[Math.round(Math.random() * (palabrasSecretas.length - 1))];
+    palabraSecreta = palabrasSecretas[Math.round(Math.random() * (palabrasSecretas.length - 1))].toUpperCase();
 
     return palabraSecreta;
 }
